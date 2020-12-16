@@ -4,36 +4,16 @@ import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import BlogEntry from "../components/blog-entry"
+
 export default function Home({ data }) {
   return (
     <Layout>
       <div>
-        <h1>Hi! I am Chiunhau,</h1>
-        <h2 style={{marginTop: '1rem'}}>I design products and services that work in the present and aim for the future.</h2>
+        <h1>Hi! I am Chiunhau</h1>
+        <p style={{marginTop: '1rem', fontWeight: 'normal', fontSize: '1.1rem'}}>I design products and services that work in the present and aim for the future.</p>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link
-              to={node.fields.slug}
-
-            >
-              <h3
-                css={css`
-                  margin-bottom: ${rhythm(1 / 4)};
-                `}
-              >
-                {node.frontmatter.title}{" "}
-                <span
-                  css={css`
-                    color: #555;
-                  `}
-                >
-                  — {node.frontmatter.date}
-                </span>
-              </h3>
-              <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid}/>
-              <p>{node.frontmatter.description}</p>
-            </Link>
-          </div>
+          <BlogEntry node={node}/>
         ))}
       </div>
     </Layout>
@@ -41,7 +21,7 @@ export default function Home({ data }) {
 }
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: {order: ASC, fields: frontmatter___index}) {
       totalCount
       edges {
         node {

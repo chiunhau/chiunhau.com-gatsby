@@ -5,10 +5,13 @@ export default function BlogPost({ data }) {
   const post = data.markdownRemark
   return (
     <Layout>
-      <Link to="/">Back</Link>
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="blog-post">
+        <Link to="/">⬅ Back</Link>
+        <hr/>
+        <div className="article">
+          <h1 className="title">{post.frontmatter.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
       </div>
     </Layout>
   )

@@ -1,0 +1,17 @@
+.blog-entry {
+  display: flex;
+  position: relative;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+
+  .image {
+    flex: 0 0 50%;
+  }
+
+  .description {
+    font-size: .9rem;
+  }
+}
+
+.blog-post {
+}

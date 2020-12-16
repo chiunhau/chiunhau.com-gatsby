@@ -7,6 +7,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -50,6 +51,6 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
-    }
+    },
   ],
 };
